@@ -111,8 +111,8 @@ h2 {
 
 .job, .education-item, .project-personal, .project-contribution {
     background: #000;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 5px;
+    margin: 5px 0;
     border-left: none;
 }
 
@@ -147,7 +147,6 @@ a:hover {
 
 #status-bar #emoji {
     display: inline-block;
-    margin: 0 5px;
 }
 
 .blink-cursor::after {
@@ -223,5 +222,59 @@ a:hover {
     }
     .toggle-button#toggle-right-sidebar {
         display: none;
+    }
+}
+
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+        font-size: 11.2px;
+    }
+
+    .sidebar, #status-bar, .toggle-button {
+        display: none !important;
+    }
+
+    .container {
+        border: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    header {
+        border-color: #000;
+    }
+
+    header h1 {
+        color: #000;
+        font-size: 1.44em;
+    }
+
+    h2 {
+        color: #000;
+        border-bottom: 2px solid #000;
+        font-size: 0.96em;
+    }
+
+    a {
+        color: #000;
+        font-size: 0.72em;
+    }
+
+    .skills-list span {
+        background: #fff;
+        color: #000;
+        border: 1px solid #000;
+        padding: 5px 10px;
+        font-size: 0.64em;
+    }
+
+    .blink-cursor::after {
+        content: none;
+    }
+
+    .profile .tagline {
+        font-size: 0.72em;
     }
 }

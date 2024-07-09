@@ -31,6 +31,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     window.addEventListener('scroll', updateSidebarPosition);
     window.addEventListener('resize', updateSidebarPosition);
+
+    const statusBar = document.getElementById('status-bar');
+    const emojiElement = document.getElementById('emoji');
+    let typedText = '';
+
+    document.addEventListener('keydown', (event) => {
+        const key = event.key;
+        if (key === 'Backspace') {
+            typedText = typedText.slice(0, -1);
+        } else if (key === 'Enter') {
+            typedText = '';
+        } else if (key.length === 1) {
+            typedText += key;
+        }
+
+        statusBar.innerText = `${emojiElement.innerText} ${typedText}`;
+    });
 });
 
 function fetchGitHubContributions(username) {
