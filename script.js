@@ -62,23 +62,62 @@ function createCommandHandler() {
 
 function fetchGitHubContributions(username) {
     const apiUrl = `https://api.github.com/users/${username}/repos`;
+    const prApiUrl = `https://api.github.com/search/issues?q=author%3A${username}`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(repos => {
             let summary = '';
-            repos.forEach(repo => {
-                if (!repo.archived) {
-                    const repoName = repo.name;
-                    const repoUrl = repo.html_url;
-                    const repoDescription = repo.description || 'No description';
-                    const isPersonal = !repo.fork;
-                    const projectClass = isPersonal ? 'project-personal' : 'project-contribution';
-                    const projectType = isPersonal ? 'Personal Project' : 'Contribution';
-                    summary += `<div class="${projectClass}"><p><strong><a href="${repoUrl}" target="_blank">${repoName}</a></strong> - ${repoDescription} <em>(${projectType})</em></p></div>`;
-                }
+            const forkedRepos = repos.filter(repo => !repo.archived && repo.fork);
+            const personalRepos = repos.filter(repo => !repo.archived && !repo.fork);
+
+            personalRepos.forEach(repo => {
+                const repoName = repo.name;
+                const repoUrl = repo.html_url;
+                const repoDescription = repo.description || 'No description';
+                summary += `<div class="project-personal"><p><strong><a href="${repoUrl}" target="_blank">${repoName}</a></strong> - ${repoDescription} <em>(Personal Project)</em></p></div>`;
             });
+
             document.getElementById('github-summary').innerHTML = summary;
+
+            fetch(prApiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const prs = data.items.filter(issue => issue.node_id.startsWith('PR') && (issue.state === 'open' || issue.state === 'closed' && issue.pull_request.merged_at));
+
+                    let promises = forkedRepos.map(repo => {
+                        return fetch(repo.url)
+                            .then(response => response.json())
+                            .then(repoData => {
+                                const parentUrl = repoData.parent ? repoData.parent.url : '';
+                                const repoName = repo.name;
+                                const repoUrl = repo.html_url;
+                                const repoDescription = repo.description || 'No description';
+                                const repoOwner = repo.owner.login;
+                                const projectType = 'Contribution';
+
+                                summary += `<div class="project-contribution"><p><strong><a href="${repoUrl}" target="_blank">${repoName}</a></strong> - ${repoDescription} <em>(${projectType})</em>`;
+
+                                const repoPrs = prs.filter(pr => pr.repository_url === parentUrl);
+
+                                if (repoPrs.length > 0) {
+                                    summary += ' - Pull Requests: <ul>';
+                                    repoPrs.forEach(pr => {
+                                        summary += `<li><a href="${pr.html_url}" target="_blank">${pr.title}</a></li>`;
+                                    });
+                                    summary += '</ul>';
+                                }
+
+                                summary += `</p></div>`;
+                            })
+                            .catch(error => console.error('Error fetching parent repo:', error));
+                    });
+
+                    Promise.all(promises).then(() => {
+                        document.getElementById('github-summary').innerHTML = summary;
+                    });
+                })
+                .catch(error => console.error('Error fetching PRs:', error));
         })
         .catch(error => console.error('Error fetching GitHub repos:', error));
 }
