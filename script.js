@@ -63,6 +63,7 @@ function createCommandHandler() {
 function fetchGitHubContributions(username) {
     const apiUrl = `https://api.github.com/users/${username}/repos`;
     const prApiUrl = `https://api.github.com/search/issues?q=author%3A${username}`;
+    const excluded = ["PR_kwDOKzhRRM5x_XAl", "PR_kwDOC6bl6c5rEl9A", "PR_kwDOC6bl6c5oBThX"]
 
     // Fetch all repositories
     fetch(apiUrl)
@@ -87,7 +88,8 @@ function fetchGitHubContributions(username) {
             fetch(prApiUrl)
                 .then(response => response.json())
                 .then(data => {
-                    const prs = data.items.filter(issue => issue.node_id.startsWith('PR') && (issue.state === 'open' || (issue.state === 'closed' && issue.pull_request.merged_at)));
+                    const prs = data.items.filter(issue => issue.node_id.startsWith('PR') && !excluded.includes(issue.node_id));
+                    console.log(prs)
 
                     // Process forked repositories
                     let promises = forkedRepos.map(repo => {
