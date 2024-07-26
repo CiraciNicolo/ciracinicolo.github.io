@@ -81,10 +81,6 @@ function fetchGitHubContributions(username) {
                 summary += `<div class="project-personal"><p><strong><a href="${repoUrl}" target="_blank">${repoName}</a></strong> - ${repoDescription} <em>(Personal Project)</em></p></div>`;
             });
 
-            // Display the initial summary for personal repos
-            document.getElementById('github-summary').innerHTML = summary;
-
-            // Fetch all PRs by the user
             fetch(prApiUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -123,9 +119,7 @@ function fetchGitHubContributions(username) {
                             .catch(error => console.error('Error fetching parent repo:', error));
                     });
 
-                    // Wait for all promises to complete
                     Promise.all(promises).then(() => {
-                        // Update the summary with forked repos info and PRs
                         document.getElementById('github-summary').innerHTML = summary;
                     });
                 })
