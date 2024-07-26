@@ -85,7 +85,6 @@ function fetchGitHubContributions(username) {
                 .then(response => response.json())
                 .then(data => {
                     const prs = data.items.filter(issue => issue.node_id.startsWith('PR') && !excluded.includes(issue.node_id));
-                    console.log(prs)
 
                     // Process forked repositories
                     let promises = forkedRepos.map(repo => {
@@ -98,23 +97,20 @@ function fetchGitHubContributions(username) {
                                 const repoDescription = repo.description || 'No description';
                                 const repoOwner = repo.owner.login;
                                 const projectType = 'Contribution';
-
-                                // Append the basic repo info
-                                summary += `<div class="project-contribution"><p><strong><a href="${repoUrl}" target="_blank">${repoName}</a></strong> - ${repoDescription} <em>(${projectType})</em>`;
-
-                                // Filter PRs for this repository
                                 const repoPrs = prs.filter(pr => pr.repository_url === parentUrl);
 
                                 if (repoPrs.length > 0) {
+
+                                    summary += `<div class="project-contribution"><p><strong><a href="${repoUrl}" target="_blank">${repoName}</a></strong> - ${repoDescription} <em>(${projectType})</em>`;
+
                                     summary += ' - Pull Requests: <ul>';
                                     repoPrs.forEach(pr => {
                                         const prNumber = pr.number;
                                         summary += `<li><a href="${pr.html_url}" target="_blank">#${prNumber} - ${pr.title}</a></li>`;
                                     });
                                     summary += '</ul>';
+                                    summary += `</p></div>`;
                                 }
-
-                                summary += `</p></div>`;
                             })
                             .catch(error => console.error('Error fetching parent repo:', error));
                     });
