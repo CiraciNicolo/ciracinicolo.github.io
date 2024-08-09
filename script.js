@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     document.addEventListener('keydown', (event) => {
         const key = event.key;
+        event.preventDefault();
+
         if (key === 'Backspace') {
             typedText = typedText.slice(0, -1);
         } else if (key === 'Enter') {
