@@ -94,7 +94,8 @@ header p {
 }
 
 .sidebar, .right-sidebar {
-    width: 22%;
+    flex: 0 1 220px;
+    min-width: 160px;
     position: relative;
     z-index: 10;
 }
@@ -121,7 +122,8 @@ header p {
 }
 
 main {
-    width: 56%;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 h2 {
