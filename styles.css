@@ -9,6 +9,7 @@
     --text-muted: #666666;
     --accent: #0a5f38;
     --border: #e5e5e5;
+    --shadow: rgba(20, 20, 20, 0.08);
     color-scheme: light;
 }
 
@@ -19,6 +20,7 @@
     --text-muted: #999999;
     --accent: #34d399;
     --border: #262a30;
+    --shadow: rgba(0, 0, 0, 0.35);
     color-scheme: dark;
 }
 
@@ -30,6 +32,7 @@
         --text-muted: #999999;
         --accent: #34d399;
         --border: #262a30;
+        --shadow: rgba(0, 0, 0, 0.35);
         color-scheme: dark;
     }
 }
@@ -57,12 +60,27 @@ body {
 }
 
 header {
+    position: relative;
+    overflow: hidden;
     text-align: center;
     padding: 24px 0;
     border-bottom: 1px solid var(--border);
 }
 
+header::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 .path-label {
+    position: relative;
     font-family: ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
     font-size: 0.8em;
     color: var(--accent);
@@ -138,13 +156,18 @@ h2 {
 }
 
 .job, .education-item, .project-personal, .project-contribution {
-    padding: 8px 0 8px 12px;
-    margin: 12px 0;
-    border-left: 2px solid var(--border);
+    background: var(--bg-panel);
+    padding: 12px 14px;
+    margin: 14px 0;
+    border-left: 3px solid var(--border);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 14px var(--shadow);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .job:hover, .education-item:hover, .project-personal:hover, .project-contribution:hover {
     border-left-color: var(--accent);
+    box-shadow: 0 6px 20px var(--shadow);
 }
 
 .role-history {
@@ -307,6 +330,10 @@ a:hover {
         border-color: #000;
     }
 
+    header::before {
+        display: none;
+    }
+
     .path-label {
         color: #000;
     }
@@ -328,7 +355,10 @@ a:hover {
     }
 
     .job, .education-item, .project-personal, .project-contribution {
+        background: none;
+        box-shadow: none;
         border-left: 2px solid #000;
+        border-radius: 0;
     }
 
     .skills-list span {
