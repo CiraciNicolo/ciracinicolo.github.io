@@ -150,8 +150,8 @@ header p {
 }
 
 .right-sidebar {
-    flex: 0 1 320px;
-    min-width: 240px;
+    flex: 0 1 380px;
+    min-width: 280px;
     position: relative;
     z-index: 10;
 }
