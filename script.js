@@ -2,15 +2,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     fetchGitHubContributions('ciracinicolo');
     initThemeToggle();
 
-    const sidebar = document.getElementById('sidebar');
     const rightSidebar = document.getElementById('right-sidebar');
-    const toggleSidebar = document.getElementById('toggle-sidebar');
     const toggleRightSidebar = document.getElementById('toggle-right-sidebar');
-
-    toggleSidebar.addEventListener('click', () => {
-        updateSidebarPosition();
-        sidebar.classList.toggle('show');
-    });
 
     toggleRightSidebar.addEventListener('click', () => {
         updateSidebarPosition();
@@ -46,11 +39,9 @@ function isMobile() {
 
 function updateSidebarPosition() {
     if (isMobile()) {
-        const sidebar = document.getElementById('sidebar');
         const rightSidebar = document.getElementById('right-sidebar');
         const scrollTop = window.scrollY;
 
-        sidebar.style.top = `${scrollTop + 100}px`;
         rightSidebar.style.top = `${scrollTop + 100}px`;
     }
 }

@@ -93,32 +93,11 @@ header p {
     margin-top: 24px;
 }
 
-.sidebar, .right-sidebar {
-    flex: 0 1 220px;
-    min-width: 160px;
+.right-sidebar {
+    flex: 0 1 320px;
+    min-width: 240px;
     position: relative;
     z-index: 10;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar ul li, .right-sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a, .right-sidebar ul li a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-size: 0.9em;
-    transition: color 0.15s ease;
-}
-
-.sidebar ul li a:hover, .right-sidebar ul li a:hover {
-    color: var(--accent);
 }
 
 main {
@@ -255,7 +234,7 @@ a:hover {
     .content {
         flex-direction: column;
     }
-    .sidebar, .right-sidebar {
+    .right-sidebar {
         width: 90%;
         position: absolute;
         background: var(--bg);
@@ -268,15 +247,7 @@ a:hover {
         padding: 16px;
         overflow-y: auto;
         transition: transform 0.3s ease-in-out;
-    }
-    .sidebar {
-        transform: translateX(-100%);
-    }
-    .right-sidebar {
         transform: translateX(100%);
-    }
-    .sidebar.show {
-        transform: translateX(0);
     }
     .right-sidebar.show {
         transform: translateX(0);
@@ -300,18 +271,12 @@ a:hover {
         cursor: pointer;
         z-index: 30;
     }
-    .toggle-button#toggle-sidebar {
-        left: 20px;
-    }
     .toggle-button#toggle-right-sidebar {
         right: 15px;
     }
 }
 
 @media (min-width: 768px) {
-    .toggle-button#toggle-sidebar {
-        display: none;
-    }
     .toggle-button#toggle-right-sidebar {
         display: none;
     }
@@ -324,7 +289,7 @@ a:hover {
         font-size: 11.2px;
     }
 
-    .sidebar, #status-bar, .toggle-button {
+    #status-bar, .toggle-button {
         display: none !important;
     }
 
