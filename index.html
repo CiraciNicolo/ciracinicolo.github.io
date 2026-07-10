@@ -4,42 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nicolò Ciraci</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>📜 Nicolò Ciraci</h1>
+            <div class="path-label">~/nicolo-ciraci</div>
+            <h1>Nicolò Ciraci<span class="cursor-accent">_</span></h1>
+            <p class="header-subtitle">Senior Platform Security Engineer @ DocPlanner</p>
         </header>
         <div class="content">
-            <nav class="sidebar" id="sidebar">
-                <ul>
-                    <li><a href="#work-experiences">💼 Work Experiences</a></li>
-                    <li><a href="#education">🎓 Education</a></li>
-                    <li><a href="#github-contributions">🔧 GitHub Contributions</a></li>
-                </ul>
-            </nav>
             <main>
                 <section id="work-experiences">
-                    <h2>💼 Professional Work Experiences</h2>
+                    <h2>Professional Work Experiences</h2>
                     <div class="job">
-                        <h3>Senior Platform Engineer</h3>
-                        <p><em>DocPlanner (January 2025 - Present day, Remote)</em></p>
+                        <h3>DocPlanner</h3>
+                        <p><em>January 2025 - Present day, Remote</em></p>
+                        <ul class="role-history">
+                            <li>
+                                <div class="role-header">
+                                    <span class="role-title">Senior Platform Security Engineer</span>
+                                    <span class="role-dates">April 2026 - Present day</span>
+                                </div>
+                                <p class="role-description">Owning platform security across the EKS estate, spanning policy definition and enforcement, centralized logging, and infrastructure hardening.</p>
+                            </li>
+                            <li>
+                                <div class="role-header">
+                                    <span class="role-title">Senior Platform Engineer</span>
+                                    <span class="role-dates">January 2025 - April 2026</span>
+                                </div>
+                                <p class="role-description">Member of the PMS migration team, working on migrating legacy architecture to a cloud-native platform.</p>
+                            </li>
+                        </ul>
                     </div>
                     <div class="job">
-                        <h3>Innovation Researcher</h3>
-                        <p><em>Elmec Informatica (September 2023 - January 2025, Varese Area)</em></p>
-                        <p>Specializing in Generative AI and Kubernetes technologies. Focusing on Cluster API, Kubernetes security, Kubernetes multi tenancy and GPU utilization.</p>
-                    </div>
-                    <div class="job">
-                        <h3>Security Architect</h3>
-                        <p><em>CybergON@Elmec Informatica (November 2019 - September 2023, Varese Area)</em></p>
-                        <p>Developed CyberSecurity services, implemented IDS, SIEM, Edge Computing, and Cloud Computing solutions.</p>
-                    </div>
-                    <div class="job">
-                        <h3>Security Specialist</h3>
-                        <p><em>Elmec Informatica (January 2018 - November 2019, Varese Area)</em></p>
-                        <p>Designed authentication methods, managed SIEM infrastructure, conducted red teaming.</p>
+                        <h3>Elmec Informatica</h3>
+                        <p><em>January 2018 - January 2025, Varese Area</em></p>
+                        <ul class="role-history">
+                            <li>
+                                <div class="role-header">
+                                    <span class="role-title">Innovation Researcher</span>
+                                    <span class="role-dates">September 2023 - January 2025</span>
+                                </div>
+                                <p class="role-description">Specializing in Generative AI and Kubernetes technologies. Focusing on Cluster API, Kubernetes security, Kubernetes multi tenancy and GPU utilization.</p>
+                            </li>
+                            <li>
+                                <div class="role-header">
+                                    <span class="role-title">Security Architect <span class="role-org">· CybergON@Elmec Informatica</span></span>
+                                    <span class="role-dates">November 2019 - September 2023</span>
+                                </div>
+                                <p class="role-description">Developed CyberSecurity services, implemented IDS, SIEM, Edge Computing, and Cloud Computing solutions.</p>
+                            </li>
+                            <li>
+                                <div class="role-header">
+                                    <span class="role-title">Security Specialist</span>
+                                    <span class="role-dates">January 2018 - November 2019</span>
+                                </div>
+                                <p class="role-description">Designed authentication methods, managed SIEM infrastructure, conducted red teaming.</p>
+                            </li>
+                        </ul>
                     </div>
                     <div class="job">
                         <h3>iOS Developer</h3>
@@ -49,7 +75,7 @@
                 </section>
 
                 <section id="education">
-                    <h2>🎓 Educational Background and Achievements</h2>
+                    <h2>Educational Background and Achievements</h2>
                     <div class="education-item">
                         <h3>Bachelor Degree in Computer Science</h3>
                         <p><em>Università degli studi di Milano (October 2013 - December 2017)</em></p>
@@ -62,15 +88,15 @@
                 </section>
 
                 <section id="github-contributions">
-                    <h2>🔧 GitHub Projects and Contributions</h2>
+                    <h2>GitHub Projects and Contributions</h2>
                     <div id="github-summary">
-                        ⏳
+                        Loading…
                     </div>
                 </section>
             </main>
             <nav class="right-sidebar" id="right-sidebar">
                 <section id="profile">
-                    <h2>📇 Contact Information and Profiles</h2>
+                    <h2>Contact & Profiles</h2>
                     <div class="profile">
                         <p><strong>Email:</strong> <a href="mailto:ciraci.nicolo@gmail.com">ciraci.nicolo@gmail.com</a></p>
                         <p><strong>Location:</strong> Varese, Italy</p>
@@ -80,7 +106,7 @@
                 </section>
 
                 <section id="skills">
-                    <h2>🛠️ Technical Skills and Expertise</h2>
+                    <h2>Technical Skills and Expertise</h2>
                     <div class="skills-list">
                         <span>Linux</span>
                         <span>macOS</span>
@@ -98,7 +124,7 @@
                 </section>
 
                 <section id="languages">
-                    <h2>🌐 Languages Proficiency Levels</h2>
+                    <h2>Languages Proficiency Levels</h2>
                     <ul>
                         <li>Italian: <span class="language-level">★★★★★</span></li>
                         <li>English: <span class="language-level">★★★★☆</span></li>
@@ -106,13 +132,13 @@
                 </section>
 
                 <section id="other-activities">
-                    <h2>🎤 Extracurricular Activities and Leadership</h2>
+                    <h2>Extracurricular Activities</h2>
                     <h3>President at COVO (2017-2019, Varese)</h3>
                     <p>Led a youth association organizing recreational and cultural events to foster the creative and educational potential of Varese's youth.</p>
                 </section>
 
                 <section id="certifications">
-                    <h2>🖥️ Certifications</h2>
+                    <h2>Certifications</h2>
                     <ul>
                         <li><a href="https://www.credly.com/badges/7de75c21-e9cc-466d-9a6c-2b92327d9e1f/linked_in_profile" target="_blank">CKA</a></li>
                     </ul>
@@ -121,11 +147,12 @@
         </div>
     </div>
     <div id="status-bar">
-        <span id="emoji">😺</span>
-        <span class="blink-cursor"></span>
+        <button id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+            <span class="icon-sun" aria-hidden="true">&#9728;</span>
+            <span class="icon-moon" aria-hidden="true">&#9789;</span>
+        </button>
     </div>
-    <div id="toggle-sidebar" class="toggle-button">☰</div>
-    <div id="toggle-right-sidebar" class="toggle-button">👤</div>
+    <div id="toggle-right-sidebar" class="toggle-button" aria-label="Toggle contact info">&#9635;</div>
     <script src="script.js"></script>
 </body>
 </html>
