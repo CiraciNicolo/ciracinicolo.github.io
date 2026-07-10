@@ -61,6 +61,7 @@ body {
 
 header {
     position: relative;
+    z-index: 0;
     text-align: center;
     padding: 24px 0;
     border-bottom: 1px solid var(--border);
