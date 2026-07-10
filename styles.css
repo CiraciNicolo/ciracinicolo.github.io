@@ -57,6 +57,18 @@ body {
     padding: 20px;
     background: var(--bg);
     position: relative;
+    animation: fade-in-up 0.5s ease both;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header {
@@ -98,6 +110,13 @@ header h1 {
 
 .cursor-accent {
     color: var(--accent);
+    animation: blink 1.4s step-start infinite;
+}
+
+@keyframes blink {
+    0%, 45% { opacity: 1; }
+    50%, 95% { opacity: 0.15; }
+    100% { opacity: 1; }
 }
 
 .profile .tagline {
@@ -163,12 +182,13 @@ h2 {
     border-left: 3px solid var(--border);
     border-radius: 0 8px 8px 0;
     box-shadow: 0 4px 14px var(--shadow);
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .job:hover, .education-item:hover, .project-personal:hover, .project-contribution:hover {
     border-left-color: var(--accent);
-    box-shadow: 0 6px 20px var(--shadow);
+    box-shadow: 0 10px 24px var(--shadow);
+    transform: translateY(-2px);
 }
 
 .role-history {
@@ -319,6 +339,10 @@ a:hover {
 
     #status-bar, .toggle-button {
         display: none !important;
+    }
+
+    .container, .cursor-accent {
+        animation: none !important;
     }
 
     .container {
