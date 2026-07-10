@@ -61,7 +61,6 @@ body {
 
 header {
     position: relative;
-    overflow: hidden;
     text-align: center;
     padding: 24px 0;
     border-bottom: 1px solid var(--border);
@@ -70,11 +69,12 @@ header {
 header::before {
     content: '';
     position: absolute;
-    top: -80px;
-    right: -60px;
-    width: 260px;
-    height: 260px;
-    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
     pointer-events: none;
     z-index: -1;
 }
