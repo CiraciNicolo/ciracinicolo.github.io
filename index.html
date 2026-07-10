@@ -12,19 +12,20 @@
 <body>
     <div class="container">
         <header>
-            <h1>📜 Nicolò Ciraci</h1>
+            <div class="path-label">~/nicolo-ciraci</div>
+            <h1>Nicolò Ciraci<span class="cursor-accent">_</span></h1>
         </header>
         <div class="content">
             <nav class="sidebar" id="sidebar">
                 <ul>
-                    <li><a href="#work-experiences">💼 Work Experiences</a></li>
-                    <li><a href="#education">🎓 Education</a></li>
-                    <li><a href="#github-contributions">🔧 GitHub Contributions</a></li>
+                    <li><a href="#work-experiences">Work Experiences</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#github-contributions">GitHub Contributions</a></li>
                 </ul>
             </nav>
             <main>
                 <section id="work-experiences">
-                    <h2>💼 Professional Work Experiences</h2>
+                    <h2>Professional Work Experiences</h2>
                     <div class="job">
                         <h3>Senior Platform Engineer</h3>
                         <p><em>DocPlanner (January 2025 - Present day, Remote)</em></p>
@@ -52,7 +53,7 @@
                 </section>
 
                 <section id="education">
-                    <h2>🎓 Educational Background and Achievements</h2>
+                    <h2>Educational Background and Achievements</h2>
                     <div class="education-item">
                         <h3>Bachelor Degree in Computer Science</h3>
                         <p><em>Università degli studi di Milano (October 2013 - December 2017)</em></p>
@@ -65,15 +66,15 @@
                 </section>
 
                 <section id="github-contributions">
-                    <h2>🔧 GitHub Projects and Contributions</h2>
+                    <h2>GitHub Projects and Contributions</h2>
                     <div id="github-summary">
-                        ⏳
+                        Loading…
                     </div>
                 </section>
             </main>
             <nav class="right-sidebar" id="right-sidebar">
                 <section id="profile">
-                    <h2>📇 Contact Information and Profiles</h2>
+                    <h2>Contact Information and Profiles</h2>
                     <div class="profile">
                         <p><strong>Email:</strong> <a href="mailto:ciraci.nicolo@gmail.com">ciraci.nicolo@gmail.com</a></p>
                         <p><strong>Location:</strong> Varese, Italy</p>
@@ -83,7 +84,7 @@
                 </section>
 
                 <section id="skills">
-                    <h2>🛠️ Technical Skills and Expertise</h2>
+                    <h2>Technical Skills and Expertise</h2>
                     <div class="skills-list">
                         <span>Linux</span>
                         <span>macOS</span>
@@ -101,7 +102,7 @@
                 </section>
 
                 <section id="languages">
-                    <h2>🌐 Languages Proficiency Levels</h2>
+                    <h2>Languages Proficiency Levels</h2>
                     <ul>
                         <li>Italian: <span class="language-level">★★★★★</span></li>
                         <li>English: <span class="language-level">★★★★☆</span></li>
@@ -109,13 +110,13 @@
                 </section>
 
                 <section id="other-activities">
-                    <h2>🎤 Extracurricular Activities and Leadership</h2>
+                    <h2>Extracurricular Activities and Leadership</h2>
                     <h3>President at COVO (2017-2019, Varese)</h3>
                     <p>Led a youth association organizing recreational and cultural events to foster the creative and educational potential of Varese's youth.</p>
                 </section>
 
                 <section id="certifications">
-                    <h2>🖥️ Certifications</h2>
+                    <h2>Certifications</h2>
                     <ul>
                         <li><a href="https://www.credly.com/badges/7de75c21-e9cc-466d-9a6c-2b92327d9e1f/linked_in_profile" target="_blank">CKA</a></li>
                     </ul>
@@ -124,11 +125,13 @@
         </div>
     </div>
     <div id="status-bar">
-        <span id="emoji">😺</span>
-        <span class="blink-cursor"></span>
+        <button id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+            <span class="icon-sun" aria-hidden="true">&#9728;</span>
+            <span class="icon-moon" aria-hidden="true">&#9789;</span>
+        </button>
     </div>
-    <div id="toggle-sidebar" class="toggle-button">☰</div>
-    <div id="toggle-right-sidebar" class="toggle-button">👤</div>
+    <div id="toggle-sidebar" class="toggle-button" aria-label="Toggle navigation">&#9776;</div>
+    <div id="toggle-right-sidebar" class="toggle-button" aria-label="Toggle contact info">&#9635;</div>
     <script src="script.js"></script>
 </body>
 </html>
